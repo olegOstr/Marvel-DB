@@ -1,0 +1,47 @@
+.grid__wrapper {
+    width: 650px;
+    margin-right: 15px;
+
+    button {
+        display: block;
+        margin: 50px auto 0 auto;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.char {
+    max-width: 250px;
+    margin: 0 auto;
+    background-color: var(--color-bg-rev);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: filter .2s ease-in-out, transform .2s ease-in-out;
+
+    &:hover {
+        transform: translateY(-6px);
+        filter: drop-shadow(0px 5px 20px #9f0013);
+    }
+
+    &__img {
+        width: 200px;
+        height: 200px;
+
+        img {
+            display: block;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__title {
+        padding: 15px 15px 70px 15px;
+        font: var(--md-font);
+        color: var(--color-text);
+    }
+}
+
