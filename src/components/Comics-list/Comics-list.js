@@ -8,7 +8,7 @@ const ComicsList = () => {
             <div className={classes.grid}>
                 <article className={classes.comics}>
                     <div className={classes.comics__img}>
-                        <img src='https://via.placeholder.com/225x346' alt=''/>
+                        <img src='' alt=''/>
                     </div>
                     <h3 className={classes.comics__title}>ULTIMATE X-MEN VOL. 5: ULTIMATE WAR TPB</h3>
                     <span className={classes.comics__price}>9.99$</span>
@@ -16,7 +16,7 @@ const ComicsList = () => {
 
                 <article className={classes.comics}>
                     <div className={classes.comics__img}>
-                        <img src='https://via.placeholder.com/225x346' alt=''/>
+                        <img src='' alt=''/>
                     </div>
                     <h3 className={classes.comics__title}>ABYSS</h3>
                     <span className={classes.comics__price}>9.99$</span>
@@ -24,7 +24,7 @@ const ComicsList = () => {
 
                 <article className={classes.comics}>
                     <div className={classes.comics__img}>
-                        <img src='https://via.placeholder.com/225x346' alt=''/>
+                        <img src='' alt=''/>
                     </div>
                     <h3 className={classes.comics__title}>ABYSS</h3>
                     <span className={classes.comics__price}>9.99$</span>

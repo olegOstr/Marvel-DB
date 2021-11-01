@@ -10,7 +10,7 @@ const RandomInfo = () => {
             <div className={classes.wrapper}>
                 <div className={classes.char__info}>
                     <div className={classes.char__info_img}>
-                        <img src="https://via.placeholder.com/180" alt=""/>
+                        <img src="" alt=""/>
                     </div>
                     <div className={classes.char__info_body}>
                         <div className={classes.char__info_title}>THOR</div>

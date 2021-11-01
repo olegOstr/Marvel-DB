@@ -8,24 +8,31 @@ const CharList = () => {
             <div className={classes.grid}>
                 <article className={classes.char}>
                     <div className={classes.char__img}>
-                        <img src='https://via.placeholder.com/200' alt=''/>
+                        <img src='' alt=''/>
                     </div>
-                    <h3 className={classes.char__title}>ABYSS</h3>
+                    <div className={classes.char__body}>
+                        <h3 className={classes.char__title}>ABYSS</h3>
+                    </div>
                 </article>
 
                 <article className={classes.char}>
                     <div className={classes.char__img}>
-                        <img src='https://via.placeholder.com/200' alt=''/>
+                        <img src='' alt=''/>
                     </div>
-                    <h3 className={classes.char__title}>ABYSS</h3>
+                    <div className={classes.char__body}>
+                        <h3 className={classes.char__title}>ABYSS</h3>
+                    </div>
                 </article>
 
                 <article className={classes.char}>
                     <div className={classes.char__img}>
-                        <img src='https://via.placeholder.com/200' alt=''/>
+                        <img src='' alt=''/>
                     </div>
-                    <h3 className={classes.char__title}>ABYSS</h3>
+                    <div className={classes.char__body}>
+                        <h3 className={classes.char__title}>ABYSS</h3>
+                    </div>
                 </article>
+
             </div>
             <ButtonXl>LOAD MORE</ButtonXl>
         </div>

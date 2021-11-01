@@ -5,13 +5,13 @@ import RandomInfo from '../../components/Random-info/random-info';
 
 const CharactersPage = () => {
     return (
-        <>
+        <div>
             <RandomInfo/>
             <div className='container mt-5 d-flex'>
                 <CharList/>
                 <CharDescription/>
             </div>
-        </>
+        </div>
     );
 };
 

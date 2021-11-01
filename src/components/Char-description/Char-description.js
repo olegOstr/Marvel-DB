@@ -8,7 +8,7 @@ const CharDescription = () => {
 
             <div className={classes.descr__top}>
                 <div className={classes.descr__top_img}>
-                    <img src="https://via.placeholder.com/150" alt=""/>
+                    <img src="" alt=""/>
                 </div>
 
                 <div className={classes.descr__top_inner}>

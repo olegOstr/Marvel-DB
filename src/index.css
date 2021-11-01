@@ -4,6 +4,7 @@
     /* Typography */
     --font-family: 'Roboto Condensed', sans-serif;
     --fs-sm: 14px;
+    --fs-smi: 18px;
     --fs-md: 22px;
     --fs-hg: 24px;
     --fs-lg: 28px;
@@ -12,6 +13,7 @@
     --fw-bold: 700;
 
     --sm-font: var(--fw-normal) var(--fs-sm) / 16px var(--font-family);
+    --smi-font: var(--fw-normal) var(--fs-smi) / 21px var(--font-family);
     --md-font: var(--fw-bold) var(--fs-md) / 26px var(--font-family);
     --hg-font: var(--fw-bold) var(--fs-hg) / 28px var(--font-family);
     --lg-font: var(--fw-bold) var(--fs-lg) / 33px var(--font-family);
@@ -19,7 +21,6 @@
     /* Other */
     --radius: 0.5rem;
     --main-color: #9F0013;
-    --hover-shadow: drop-shadow(0px 5px 20px #9F0013);
 }
 
 body[data-theme='dark'] {
