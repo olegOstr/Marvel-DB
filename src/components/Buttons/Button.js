@@ -1,25 +1,25 @@
 import React from 'react';
 import classes from './Button.module.scss'
 
-export const ButtonPrm = ({children}) => {
+export const ButtonPrm = ({children, onClick}) => {
     return (
-        <button className={`${classes.btn} ${classes.btnPrm}`}>
+        <button className={`${classes.btn} ${classes.btnPrm}`} onClick={onClick}>
             {children}
         </button>
     );
 };
 
-export const ButtonSec = ({children}) => {
+export const ButtonSec = ({children, onClick}) => {
     return (
-        <button className={`${classes.btn} ${classes.btnSec}`}>
+        <button className={`${classes.btn} ${classes.btnSec}`} onClick={onClick}>
             {children}
         </button>
     );
 };
 
-export const ButtonXl = ({children}) => {
+export const ButtonXl = ({children, onClick}) => {
     return (
-        <button className={`${classes.btn} ${classes.btnXl}`}>
+        <button className={`${classes.btn} ${classes.btnXl}`} onClick={onClick}>
             {children}
         </button>
     );

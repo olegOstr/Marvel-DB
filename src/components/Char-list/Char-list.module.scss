@@ -15,8 +15,7 @@
 }
 
 .char {
-
-    max-width: 250px;
+    max-width: 200px;
     margin: 0 auto;
     background-color: var(--color-bg-rev);
     box-shadow: var(--shadow);
@@ -53,24 +52,24 @@
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
         }
     }
 
     &__body {
+        height: 120px;
         position: relative;
-        padding: 15px 15px 70px 15px;
+        padding: 15px 15px 50px 15px;
         overflow: hidden;
 
         &::before {
-            background: #e62429;
-            bottom: 100%;
-            content: "";
-            height: 100%;
-            left: 0;
             position: absolute;
-            transition: transform .3s cubic-bezier(.75, 0, .125, 1);
+            content: "";
+            left: 0;
+            bottom: 100%;
             width: 100%;
+            height: 100%;
+            background: #e62429;
+            transition: transform .3s cubic-bezier(.75, 0, .125, 1);
             z-index: -1;
         }
     }
