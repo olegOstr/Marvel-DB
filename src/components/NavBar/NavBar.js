@@ -3,6 +3,13 @@ import classes from './NavBar.module.scss'
 import {Link, NavLink} from 'react-router-dom';
 
 const NavBar = () => {
+
+    const checkActive = (match, location) => {
+        if (!location) return false;
+        const {pathname} = location;
+        return pathname === '/';
+    }
+
     return (
         <header>
             <div className="container">
@@ -13,10 +20,10 @@ const NavBar = () => {
                     <nav className={classes.nav}>
                         <ul className={classes.list__container}>
                             <li className={classes.list__item}>
-                                <NavLink to='/characters'>Characters</NavLink>
+                                <NavLink to='/' activeClassName="active" isActive={checkActive}>Characters</NavLink>
                             </li>
                             <li className={classes.list__item}>
-                                <NavLink to='/comics'>Comics</NavLink>
+                                <NavLink to='/comics' activeClassName="active">Comics</NavLink>
                             </li>
                         </ul>
                     </nav>

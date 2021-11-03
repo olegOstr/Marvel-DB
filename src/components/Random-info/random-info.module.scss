@@ -11,6 +11,7 @@
 .char__info {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     width: 50%;
     padding: 35px 40px;
 
@@ -33,9 +34,7 @@
     }
 
     &_img {
-        max-width: 180px;
-        min-width: 180px;
-        width: 100%;
+        width: 180px;
         height: 180px;
         background-color: #5c5c5c;
 
@@ -47,7 +46,6 @@
     }
 
     &_body {
-        flex-shrink: 0;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -59,19 +57,28 @@
     }
 
     &_title {
+        display: -webkit-box;
+        width: 265px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font: var(--md-font);
-
         @media (max-width: 1089px) {
             margin-top: 10px;
         }
     }
 
     &_text {
+        display: -webkit-box;
         width: 265px;
         margin: 10px 0 0 0;
-        padding: 10px 0;
         font: var(--sm-font);
-        text-align: center;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        -ms-line-clamp: 4;
+        -webkit-line-clamp: 4;
+        word-wrap: break-word;
+        -webkit-box-orient: vertical;
     }
 
     a {

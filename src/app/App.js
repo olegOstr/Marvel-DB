@@ -16,19 +16,17 @@ const App = () => {
         fetchAllCharacters()
         .then(items => setCharacters(items))
         .then(() => console.log('RENDER: Char List'))
-        .catch((e) => console.log(`ERROR ${e.response.status} ` + JSON.stringify(e.response.data)))
 
         fetchAllComics()
         .then(items => setComics(items.data.results))
         .then(() => console.log('RENDER: Comics List'))
-
     }, [])
 
     return (
         <main className={classes.App}>
             <NavBar/>
             <Switch>
-                <Route path='/characters' exact>
+                <Route path='/' exact>
                     <CharactersPage characters={characters}/>
                 </Route>
                 <Route path='/comics' exact>
