@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import classes from './App.module.scss'
 import NavBar from '../components/NavBar/NavBar';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import CharactersPage from '../pages/Characters-Page/Characters-Page';
@@ -23,7 +22,7 @@ const App = () => {
     }, [])
 
     return (
-        <main className={classes.App}>
+        <main>
             <NavBar/>
             <Switch>
                 <Route path='/' exact>

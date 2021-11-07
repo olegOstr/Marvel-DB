@@ -4,15 +4,15 @@ import CharDescription from '../../components/Char-description/Char-description'
 import RandomInfo from '../../components/Random-info/random-info';
 
 const CharactersPage = ({characters}) => {
-    
+
     return (
-        <div>
+        <>
             <RandomInfo/>
             <div className='container mt-5 d-flex'>
                 <CharList characters={characters}/>
                 <CharDescription/>
             </div>
-        </div>
+        </>
     );
 };
 

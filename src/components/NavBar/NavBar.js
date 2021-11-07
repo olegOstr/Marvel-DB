@@ -11,7 +11,7 @@ const NavBar = () => {
     }
 
     return (
-        <header>
+        <header className={classes.header}>
             <div className="container">
                 <div className={classes.wrapper}>
                     <div className={classes.logo}>
