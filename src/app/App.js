@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import NavBar from '../components/NavBar/NavBar';
+import NavBar from '../components/Nav-bar/Nav-bar';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import CharactersPage from '../pages/Characters-Page/Characters-Page';
 import ComicsPage from '../pages/Comics-page/Comics-page';
@@ -14,11 +14,13 @@ const App = () => {
     useEffect(() => {
         fetchAllCharacters()
         .then(items => setCharacters(items))
-        .then(() => console.log('RENDER: Char List'))
+        .then(() => console.log('FETCHING: Char List'))
+    }, [])
 
+    useEffect(() => {
         fetchAllComics()
-        .then(items => setComics(items.data.results))
-        .then(() => console.log('RENDER: Comics List'))
+        .then(items => setComics(items))
+        .then(() => console.log('FETCHING: Comics List'))
     }, [])
 
     return (
@@ -31,7 +33,7 @@ const App = () => {
                 <Route path='/comics' exact>
                     <ComicsPage comics={comics}/>
                 </Route>
-                <Route path='/details/:name' component={ItemPage}/>
+                <Route path='/details/:id' component={ItemPage}/>
                 <Redirect to='/'/>
             </Switch>
         </main>

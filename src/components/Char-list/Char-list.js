@@ -4,17 +4,19 @@ import {ButtonXl} from '../Buttons/Button';
 
 const CharList = ({characters}) => {
 
-    const chars = characters.map((char) => {
+    const chars = characters.map(char => {
 
-        const replaceHttpsImg = char.thumbnail.replace(/(.{4})/, '$1s')
+        const {name, thumbnail} = char
+
+        const replaceHttpsImg = thumbnail.replace(/(.{4})/, '$1s')
 
         return (
-            <article key={char.name} className={classes.char}>
+            <article key={name} className={classes.char}>
                 <div className={classes.char__img}>
-                    <img src={replaceHttpsImg} alt={char.name}/>
+                    <img src={replaceHttpsImg} alt={name}/>
                 </div>
                 <div className={classes.char__body}>
-                    <h3 className={classes.char__title}>{char.name}</h3>
+                    <h3 className={classes.char__title}>{name}</h3>
                 </div>
             </article>
         )
@@ -25,7 +27,7 @@ const CharList = ({characters}) => {
             <div className={classes.grid}>
                 {chars}
             </div>
-            <ButtonXl>LOAD MORE</ButtonXl>
+            <ButtonXl onClick={() => console.log('load more')}>LOAD MORE</ButtonXl>
         </div>
     );
 };

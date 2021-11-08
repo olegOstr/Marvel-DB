@@ -3,7 +3,7 @@ import classes from './random-info.module.scss'
 import {ButtonPrm, ButtonSec} from '../Buttons/Button';
 import decorImg from '../../static/img/decoration.png'
 import {fetchCurrentCharacter} from '../../http/MarvelService';
-import {withErrorApi} from '../Error-api/withErrorApi';
+import {withErrorApi} from '../../hoc/withErrorApi';
 import UiLoading from '../UiLoading/UiLoading';
 
 const RandomInfo = ({setErrorApi}) => {

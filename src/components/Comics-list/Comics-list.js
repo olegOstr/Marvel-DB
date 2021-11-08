@@ -1,20 +1,25 @@
 import React from 'react';
 import classes from './Comics-list.module.scss';
 import {ButtonXl} from '../Buttons/Button';
+import {useHistory} from 'react-router-dom';
 
 const ComicsList = ({comics}) => {
 
+    const {push} = useHistory()
+
     const comicsCard = comics.map(item => {
 
-        const replaceHttpsImg = item.thumbnail.path.replace(/(.{4})/, '$1s')
+        const {thumbnail, title, price, id} = item
+
+        const replaceHttpsImg = thumbnail.replace(/(.{4})/, '$1s')
 
         return (
-            <article key={item.id} className={classes.comics}>
+            <article key={item.id} className={classes.comics} onClick={() => push(`/details/${id}`)}>
                 <div className={classes.comics__img}>
-                    <img src={replaceHttpsImg + '.jpg'} alt=''/>
+                    <img src={replaceHttpsImg} alt={title}/>
                 </div>
-                <h3 className={classes.comics__title}>{item.title}</h3>
-                <span className={classes.comics__price}>{''}$</span>
+                <h3 className={classes.comics__title}>{title}</h3>
+                <span className={classes.comics__price}>{!price ? 'Price Unknown' : `$ ${price}`}</span>
             </article>
         )
     })
