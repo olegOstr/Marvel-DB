@@ -21,7 +21,7 @@ const CharList = ({characters}) => {
     })
 
     return (
-        <div className={classes.grid__wrapper}>
+        <div className={classes.wrapper}>
             <div className={classes.grid}>
                 {chars}
             </div>

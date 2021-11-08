@@ -3,12 +3,15 @@ import classes from './random-info.module.scss'
 import {ButtonPrm, ButtonSec} from '../Buttons/Button';
 import decorImg from '../../static/img/decoration.png'
 import {fetchCurrentCharacter} from '../../http/MarvelService';
+import {withErrorApi} from '../Error-api/withErrorApi';
+import UiLoading from '../UiLoading/UiLoading';
 
-const RandomInfo = () => {
+const RandomInfo = ({setErrorApi}) => {
 
     const generateRandomId = Math.floor(Math.random() * (1011400 - 1011000) + 1011000)
 
     const [randomId, setRandomId] = useState(generateRandomId)
+    const [loading, setLoading] = useState(false)
 
     const [randomChar, setRandomChar] = useState({
         name: '',
@@ -19,11 +22,14 @@ const RandomInfo = () => {
     })
 
     useEffect(() => {
+        setLoading(true)
+
         fetchCurrentCharacter(randomId)
         .then(char => setRandomChar(char))
-        .then(() => console.log('RENDER: Random Char'))
-        .catch(() => setRandomChar(randomChar))
-        
+        .then(() => console.log('FETCHING: Random Char'))
+        .catch(() => setErrorApi(true))
+        .finally(() => setLoading(false))
+
     }, [randomId])
 
     const {name, description, homeUrl, thumbnail, wikiUrl} = randomChar
@@ -38,7 +44,8 @@ const RandomInfo = () => {
             <div className={classes.wrapper}>
                 <div className={classes.char__info}>
                     <div className={classes.char__info_img}>
-                        <img src={replaceHttpsImg} alt={'Random character - ' + name}/>
+                        {!loading ? <img src={replaceHttpsImg} alt={'Random character - ' + name}/> :
+                            <UiLoading theme={'red'}/>}
                     </div>
                     <div className={classes.char__info_body}>
                         <div className={classes.char__info_title}>{name}</div>
@@ -69,4 +76,4 @@ const RandomInfo = () => {
     );
 };
 
-export default RandomInfo;
+export default withErrorApi(RandomInfo);

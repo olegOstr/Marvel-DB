@@ -20,7 +20,7 @@ const ComicsList = ({comics}) => {
     })
 
     return (
-        <section className={classes.grid__wrapper}>
+        <section className={classes.wrapper}>
             <div className={classes.grid}>
                 {comicsCard}
             </div>
