@@ -1,5 +1,6 @@
 .wrapper {
     max-width: 425px;
+    width: 100%;
     height: 100%;
     padding: 25px;
     box-shadow: var(--shadow);
@@ -9,8 +10,9 @@
     display: flex;
 
     &_img {
-        width: 150px;
         height: 150px;
+        min-width: 150px;
+        max-width: 150px;
 
         img {
             display: block;
@@ -28,6 +30,7 @@
     }
 
     &_title {
+        width: 100%;
         font: var(--md-font);
     }
 }

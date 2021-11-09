@@ -5,7 +5,7 @@ const $host = axios.create({
 })
 
 export const fetchAllCharacters = async (limit = 9) => {
-    const {data} = await $host.get(`characters?limit=${limit}&offset=50&${process.env.REACT_APP_PUBLIC_API_KEY}`)
+    const {data} = await $host.get(`characters?limit=${limit}&offset=110&${process.env.REACT_APP_PUBLIC_API_KEY}`)
     return data.data.results.map(_transformDataChar)
 }
 
@@ -23,6 +23,7 @@ const _transformDataChar = (char) => {
         thumbnail: char.thumbnail.path + '.' + char.thumbnail.extension,
         homeUrl: char.urls[0].url,
         wikiUrl: char.urls[1].url,
+        comics: char.comics.items
     }
 }
 

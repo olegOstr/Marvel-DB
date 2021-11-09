@@ -22,7 +22,6 @@ const RandomInfo = () => {
 
         fetchCurrentCharacter(randomId)
         .then(char => setRandomChar(char))
-        .then(() => console.log('FETCHING: Random Char'))
         .catch(() => setError(true))
         .finally(() => timerLoading)
 

@@ -14,13 +14,11 @@ const App = () => {
     useEffect(() => {
         fetchAllCharacters()
         .then(items => setCharacters(items))
-        .then(() => console.log('FETCHING: Char List'))
     }, [])
 
     useEffect(() => {
         fetchAllComics()
         .then(items => setComics(items))
-        .then(() => console.log('FETCHING: Comics List'))
     }, [])
 
     return (

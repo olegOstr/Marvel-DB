@@ -11,9 +11,8 @@ export const ErrorMessage = () => {
                     We cannot display data.<br/>
                     Come back when we fix everything
                 </span>
-                <img src={ErrorImg} alt="Error Image Death Star"/>
+                <img src={ErrorImg} alt="Death Star"/>
             </div>
         </>
-
     );
 };

@@ -1,12 +1,13 @@
 import React from 'react';
 import classes from './Char-list.module.scss'
 import {ButtonXl} from '../Buttons/Button';
+import {fetchCurrentCharacter} from '../../http/MarvelService';
 
-const CharList = ({characters}) => {
+const CharList = ({characters, setSelectedChar}) => {
 
     const chars = characters.map(char => {
 
-        const {name, thumbnail} = char
+        const {name, thumbnail, id} = char
 
         const replaceHttpsImg = thumbnail.replace(/(.{4})/, '$1s')
 
@@ -15,8 +16,13 @@ const CharList = ({characters}) => {
             imgStyle = {'objectFit': 'unset'};
         }
 
+        const onCharSelected = () => {
+            fetchCurrentCharacter(id)
+            .then((char) => setSelectedChar(char))
+        }
+
         return (
-            <article key={name} className={classes.char}>
+            <article key={name} className={classes.char} onClick={onCharSelected}>
                 <div className={classes.char__img}>
                     <img src={replaceHttpsImg} alt={name} style={imgStyle}/>
                 </div>
