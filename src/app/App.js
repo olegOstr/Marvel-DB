@@ -33,7 +33,7 @@ const App = () => {
                 <Route path='/comics' exact>
                     <ComicsPage comics={comics}/>
                 </Route>
-                <Route path='/details/:id' component={ItemPage}/>
+                <Route path='/comics/:id' component={ItemPage} exact/>
                 <Redirect to='/'/>
             </Switch>
         </main>

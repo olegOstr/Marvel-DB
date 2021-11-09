@@ -14,7 +14,7 @@ const ComicsList = ({comics}) => {
         const replaceHttpsImg = thumbnail.replace(/(.{4})/, '$1s')
 
         return (
-            <article key={item.id} className={classes.comics} onClick={() => push(`/details/${id}`)}>
+            <article key={item.id} className={classes.comics} onClick={() => push(`/comics/${id}`)}>
                 <div className={classes.comics__img}>
                     <img src={replaceHttpsImg} alt={title}/>
                 </div>
