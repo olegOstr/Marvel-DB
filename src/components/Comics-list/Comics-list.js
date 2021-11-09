@@ -13,10 +13,15 @@ const ComicsList = ({comics}) => {
 
         const replaceHttpsImg = thumbnail.replace(/(.{4})/, '$1s')
 
+        let imgStyle = null;
+        if (replaceHttpsImg === 'https://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
+            imgStyle = {'objectFit': 'unset'};
+        }
+
         return (
             <article key={item.id} className={classes.comics} onClick={() => push(`/comics/${id}`)}>
                 <div className={classes.comics__img}>
-                    <img src={replaceHttpsImg} alt={title}/>
+                    <img src={replaceHttpsImg} alt={title} style={imgStyle}/>
                 </div>
                 <h3 className={classes.comics__title}>{title}</h3>
                 <span className={classes.comics__price}>{!price ? 'Price Unknown' : `$ ${price}`}</span>

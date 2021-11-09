@@ -10,10 +10,15 @@ const CharList = ({characters}) => {
 
         const replaceHttpsImg = thumbnail.replace(/(.{4})/, '$1s')
 
+        let imgStyle = null;
+        if (replaceHttpsImg === 'https://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
+            imgStyle = {'objectFit': 'unset'};
+        }
+
         return (
             <article key={name} className={classes.char}>
                 <div className={classes.char__img}>
-                    <img src={replaceHttpsImg} alt={name}/>
+                    <img src={replaceHttpsImg} alt={name} style={imgStyle}/>
                 </div>
                 <div className={classes.char__body}>
                     <h3 className={classes.char__title}>{name}</h3>

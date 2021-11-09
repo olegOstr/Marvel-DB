@@ -48,7 +48,7 @@ const RandomInfo = () => {
                         <span className={classes.random__info_text}>
                         Or choose another one
                     </span>
-                        <ButtonPrm onClick={handleRandomChar}>TRY IT</ButtonPrm>
+                        <ButtonPrm onClick={handleRandomChar}>{!loading ? 'TRY IT' : 'Loading...'}</ButtonPrm>
                     </div>
                 </div>
             </div>
@@ -60,25 +60,34 @@ const View = ({randomChar, loading}) => {
     const {name, description, homeUrl, thumbnail, wikiUrl} = randomChar
     const replaceHttpsImg = thumbnail?.replace(/(.{4})/, '$1s')
 
+    let imgStyle = null;
+    if (replaceHttpsImg === 'https://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
+        imgStyle = {'objectFit': 'contain'};
+    }
+
     return (
         <>
-            {!loading ? <div className={classes.char__info}>
-                <div className={classes.char__info_img}>
-                    <img src={replaceHttpsImg} alt={name}/>
-                </div>
-                <div className={classes.char__info_body}>
-                    <div className={classes.char__info_title}>{name}</div>
-                    <p className={classes.char__info_text}>{description ? description : 'Not description'}</p>
-                    <div>
-                        <a href={homeUrl} target='_blank' rel="noreferrer">
-                            <ButtonPrm>HOMEPAGE</ButtonPrm>
-                        </a>
-                        <a href={wikiUrl} target='_blank' rel="noreferrer">
-                            <ButtonSec>WIKI</ButtonSec>
-                        </a>
+            {!loading ?
+                <div className={classes.char__info}>
+                    <div className={classes.char__info_img}>
+                        <img src={replaceHttpsImg} alt={name} style={imgStyle}/>
+                    </div>
+                    <div className={classes.char__info_body}>
+                        <div className={classes.char__info_title}>{name}</div>
+                        <p className={classes.char__info_text}>{description ? description : 'Not description'}</p>
+                        <div>
+                            <a href={homeUrl} target='_blank' rel="noreferrer">
+                                <ButtonPrm>HOMEPAGE</ButtonPrm>
+                            </a>
+                            <a href={wikiUrl} target='_blank' rel="noreferrer">
+                                <ButtonSec>WIKI</ButtonSec>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div> : <UiLoading theme={'red'}/>}
+                :
+                <UiLoading theme={'red'}/>
+            }
         </>
     )
 }
