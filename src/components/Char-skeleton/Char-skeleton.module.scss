@@ -4,6 +4,9 @@
     padding: 25px;
     box-shadow: var(--shadow);
 
+    position: sticky;
+    top: 25px;
+
     &_title {
         font-size: 18px;
         font-weight: 700;

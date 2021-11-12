@@ -5,7 +5,7 @@ const $host = axios.create({
 })
 
 export const fetchAllCharacters = async (limit = 9) => {
-    const {data} = await $host.get(`characters?limit=${limit}&offset=110&${process.env.REACT_APP_PUBLIC_API_KEY}`)
+    const {data} = await $host.get(`characters?limit=${limit}&offset=130&${process.env.REACT_APP_PUBLIC_API_KEY}`)
     return data.data.results.map(_transformDataChar)
 }
 
@@ -28,7 +28,7 @@ const _transformDataChar = (char) => {
 }
 
 export const fetchAllComics = async () => {
-    const {data} = await $host.get(`comics?limit=12&${process.env.REACT_APP_PUBLIC_API_KEY}`)
+    const {data} = await $host.get(`comics?limit=12&offset=30&${process.env.REACT_APP_PUBLIC_API_KEY}`)
     return data.data.results.map(_transformDataComics)
 }
 

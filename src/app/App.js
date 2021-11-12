@@ -10,23 +10,28 @@ const App = () => {
 
     const [characters, setCharacters] = useState([])
     const [comics, setComics] = useState([])
+    const [limitChar, setLimitChar] = useState(9)
 
     useEffect(() => {
-        fetchAllCharacters()
+        fetchAllCharacters(limitChar)
         .then(items => setCharacters(items))
-    }, [])
+    }, [limitChar])
 
     useEffect(() => {
         fetchAllComics()
         .then(items => setComics(items))
     }, [])
 
+    const handleMoreChars = () => {
+        setLimitChar(limitChar + 3)
+    }
+
     return (
         <main>
             <NavBar/>
             <Switch>
                 <Route path='/' exact>
-                    <CharactersPage characters={characters}/>
+                    <CharactersPage characters={characters} handleMoreChars={handleMoreChars}/>
                 </Route>
                 <Route path='/comics' exact>
                     <ComicsPage comics={comics}/>

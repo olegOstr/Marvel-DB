@@ -1,24 +1,27 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import classes from './Char-list.module.scss'
 import {ButtonXl} from '../Buttons/Button';
-import {fetchCurrentCharacter} from '../../http/MarvelService';
 
-const CharList = ({characters, setSelectedChar}) => {
+const CharList = ({characters, setSelectedCharId, handleMoreChars}) => {
+
+    const scrollToRef = useRef(null)
+    const executeScroll = () => {
+        scrollToRef.current.scrollIntoView({behavior: 'smooth'})
+    }
+    useEffect(executeScroll, [handleMoreChars])
 
     const chars = characters.map(char => {
 
         const {name, thumbnail, id} = char
-
         const replaceHttpsImg = thumbnail.replace(/(.{4})/, '$1s')
-
         let imgStyle = null;
+
         if (replaceHttpsImg === 'https://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
             imgStyle = {'objectFit': 'unset'};
         }
 
         const onCharSelected = () => {
-            fetchCurrentCharacter(id)
-            .then((char) => setSelectedChar(char))
+            setSelectedCharId(id)
         }
 
         return (
@@ -38,7 +41,8 @@ const CharList = ({characters, setSelectedChar}) => {
             <div className={classes.grid}>
                 {chars}
             </div>
-            <ButtonXl onClick={() => console.log('load more')}>LOAD MORE</ButtonXl>
+            <ButtonXl onClick={handleMoreChars}>LOAD MORE</ButtonXl>
+            <div ref={scrollToRef} aria-hidden={true}/>
         </div>
     );
 };

@@ -4,6 +4,9 @@
     height: 100%;
     padding: 25px;
     box-shadow: var(--shadow);
+
+    position: sticky;
+    top: 25px;
 }
 
 .descr__top {
@@ -47,8 +50,6 @@
     }
 
     &_field {
-        display: block;
-        width: 100%;
         margin-top: 10px;
         padding: 4px 10px;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
