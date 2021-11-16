@@ -1,14 +1,8 @@
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
 import classes from './Char-list.module.scss'
 import {ButtonXl} from '../Buttons/Button';
 
-const CharList = ({characters, setSelectedCharId, handleMoreChars}) => {
-
-    const scrollToRef = useRef(null)
-    const executeScroll = () => {
-        scrollToRef.current.scrollIntoView({behavior: 'smooth'})
-    }
-    useEffect(executeScroll, [handleMoreChars])
+const CharList = ({characters, setSelectedCharId, handleMoreChars, loadingBtn}) => {
 
     const chars = characters.map(char => {
 
@@ -36,13 +30,17 @@ const CharList = ({characters, setSelectedCharId, handleMoreChars}) => {
         )
     })
 
+    let disabledBtn = !!loadingBtn
+
     return (
         <div className={classes.wrapper}>
             <div className={classes.grid}>
                 {chars}
             </div>
-            <ButtonXl onClick={handleMoreChars}>LOAD MORE</ButtonXl>
-            <div ref={scrollToRef} aria-hidden={true}/>
+            <ButtonXl
+                onClick={handleMoreChars}
+                disabled={disabledBtn}
+            >{!loadingBtn ? `LOAD MORE` : 'Loading...'}</ButtonXl>
         </div>
     );
 };

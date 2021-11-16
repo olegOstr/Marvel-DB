@@ -3,7 +3,7 @@ import classes from './Char-description.module.scss'
 import {ButtonPrm, ButtonSec} from '../Buttons/Button';
 
 const CharDescription = ({currentChar}) => {
-
+    
         const {name, thumbnail, description, homeUrl, wikiUrl, comics} = currentChar
 
         const printComicsList = comics.map((item, idx) => {

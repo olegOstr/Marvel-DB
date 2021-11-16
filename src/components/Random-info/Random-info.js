@@ -13,7 +13,7 @@ const RandomInfo = () => {
     const [randomId, setRandomId] = useState(generateRandomId)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
-    const [randomChar, setRandomChar] = useState({})
+    const [randomChar, setRandomChar] = useState([])
 
     useEffect(() => {
         setLoading(true)

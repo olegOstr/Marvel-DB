@@ -17,9 +17,9 @@ export const ButtonSec = ({children, onClick, ...props}) => {
     );
 };
 
-export const ButtonXl = ({children, onClick, ...props}) => {
+export const ButtonXl = ({children, onClick, disabled, ...props}) => {
     return (
-        <button className={`${classes.btn} ${classes.btnXl}`} onClick={onClick} {...props} {...props}>
+        <button className={`${classes.btn} ${classes.btnXl}`} disabled={disabled} onClick={onClick} {...props}>
             {children}
         </button>
     );

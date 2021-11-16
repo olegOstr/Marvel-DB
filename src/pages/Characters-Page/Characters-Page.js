@@ -5,7 +5,7 @@ import RandomInfo from '../../components/Random-info/Random-info';
 import CharSkeleton from '../../components/Char-skeleton/Char-skeleton';
 import {fetchCurrentCharacter} from '../../http/MarvelService';
 
-const CharactersPage = ({characters, handleMoreChars}) => {
+const CharactersPage = ({characters, handleMoreChars, loadingBtn}) => {
 
     const [selectedCharId, setSelectedCharId] = useState(null)
     const [currentChar, setCurrentChar] = useState(null)
@@ -18,7 +18,7 @@ const CharactersPage = ({characters, handleMoreChars}) => {
         }
 
         setLoading(true)
-        let timerLoading = setTimeout(() => setLoading(false),)
+        let timerLoading = setTimeout(() => setLoading(false))
 
         fetchCurrentCharacter(selectedCharId)
         .then((char) => setCurrentChar(char))
@@ -34,6 +34,7 @@ const CharactersPage = ({characters, handleMoreChars}) => {
                 <CharList characters={characters}
                           setSelectedCharId={setSelectedCharId}
                           handleMoreChars={handleMoreChars}
+                          loadingBtn={loadingBtn}
                 />
                 {currentChar ? <CharDescription currentChar={currentChar} loading={loading}/> : <CharSkeleton/>}
             </div>

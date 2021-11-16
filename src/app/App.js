@@ -10,12 +10,15 @@ const App = () => {
 
     const [characters, setCharacters] = useState([])
     const [comics, setComics] = useState([])
-    const [limitChar, setLimitChar] = useState(9)
+    const [offsetChar, setOffsetChar] = useState(130)
+    const [loadingBtn, setLoadingBtn] = useState(false)
 
     useEffect(() => {
-        fetchAllCharacters(limitChar)
-        .then(items => setCharacters(items))
-    }, [limitChar])
+        setLoadingBtn(true)
+        fetchAllCharacters(offsetChar)
+        .then(newChars => setCharacters(characters => [...characters, ...newChars]))
+        .finally(() => setLoadingBtn(false))
+    }, [offsetChar])
 
     useEffect(() => {
         fetchAllComics()
@@ -23,7 +26,7 @@ const App = () => {
     }, [])
 
     const handleMoreChars = () => {
-        setLimitChar(limitChar + 3)
+        setOffsetChar(offsetChar + 9)
     }
 
     return (
@@ -31,7 +34,7 @@ const App = () => {
             <NavBar/>
             <Switch>
                 <Route path='/' exact>
-                    <CharactersPage characters={characters} handleMoreChars={handleMoreChars}/>
+                    <CharactersPage characters={characters} handleMoreChars={handleMoreChars} loadingBtn={loadingBtn}/>
                 </Route>
                 <Route path='/comics' exact>
                     <ComicsPage comics={comics}/>

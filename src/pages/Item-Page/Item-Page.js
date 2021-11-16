@@ -14,7 +14,7 @@ const ItemPage = () => {
         fetchCurrentComics(id)
         .then((item) => setOneComics(item))
         .then(() => console.log('FETCHING One Comics'))
-    }, [])
+    }, [id])
 
 
     return (

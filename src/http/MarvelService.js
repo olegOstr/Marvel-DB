@@ -4,8 +4,8 @@ const $host = axios.create({
     baseURL: 'https://gateway.marvel.com:443/v1/public/'
 })
 
-export const fetchAllCharacters = async (limit = 9) => {
-    const {data} = await $host.get(`characters?limit=${limit}&offset=130&${process.env.REACT_APP_PUBLIC_API_KEY}`)
+export const fetchAllCharacters = async (offset) => {
+    const {data} = await $host.get(`characters?limit=9&offset=${offset}&${process.env.REACT_APP_PUBLIC_API_KEY}`)
     return data.data.results.map(_transformDataChar)
 }
 
