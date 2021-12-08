@@ -3,11 +3,11 @@ import classes from './Comics-list.module.scss';
 import {ButtonXl} from '../Buttons/Button';
 import {useHistory} from 'react-router-dom';
 
-const ComicsList = ({comics}) => {
+const ComicsList = ({comics, handleMoreComics, loadingBtn}) => {
 
     const {push} = useHistory()
 
-    const comicsCard = comics.map(item => {
+    const comicsCard = comics.map((item, index) => {
 
         const {thumbnail, title, price, id} = item
 
@@ -19,7 +19,7 @@ const ComicsList = ({comics}) => {
         }
 
         return (
-            <article key={item.id} className={classes.comics} onClick={() => push(`/comics/${id}`)}>
+            <article key={index} className={classes.comics} onClick={() => push(`/comics/${id}`)}>
                 <div className={classes.comics__img}>
                     <img src={replaceHttpsImg} alt={title} style={imgStyle}/>
                 </div>
@@ -34,7 +34,10 @@ const ComicsList = ({comics}) => {
             <div className={classes.grid}>
                 {comicsCard}
             </div>
-            <ButtonXl>LOAD MORE</ButtonXl>
+            <ButtonXl onClick={handleMoreComics}
+                      disabled={loadingBtn}>
+                {!loadingBtn ? `LOAD MORE` : 'Loading...'}
+            </ButtonXl>
         </section>
     );
 };

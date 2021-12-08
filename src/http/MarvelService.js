@@ -27,8 +27,8 @@ const _transformDataChar = (char) => {
     }
 }
 
-export const fetchAllComics = async () => {
-    const {data} = await $host.get(`comics?limit=12&offset=30&${process.env.REACT_APP_PUBLIC_API_KEY}`)
+export const fetchAllComics = async (offset) => {
+    const {data} = await $host.get(`comics?limit=9&offset=${offset}&${process.env.REACT_APP_PUBLIC_API_KEY}`)
     return data.data.results.map(_transformDataComics)
 }
 

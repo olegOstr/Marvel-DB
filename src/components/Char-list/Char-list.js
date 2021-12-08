@@ -30,8 +30,6 @@ const CharList = ({characters, setSelectedCharId, handleMoreChars, loadingBtn}) 
         )
     })
 
-    let disabledBtn = !!loadingBtn
-
     return (
         <div className={classes.wrapper}>
             <div className={classes.grid}>
@@ -39,7 +37,7 @@ const CharList = ({characters, setSelectedCharId, handleMoreChars, loadingBtn}) 
             </div>
             <ButtonXl
                 onClick={handleMoreChars}
-                disabled={disabledBtn}
+                disabled={loadingBtn}
             >{!loadingBtn ? `LOAD MORE` : 'Loading...'}</ButtonXl>
         </div>
     );

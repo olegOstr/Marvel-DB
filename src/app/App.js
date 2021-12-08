@@ -11,6 +11,7 @@ const App = () => {
     const [characters, setCharacters] = useState([])
     const [comics, setComics] = useState([])
     const [offsetChar, setOffsetChar] = useState(130)
+    const [offsetComics, setOffsetComics] = useState(40)
     const [loadingBtn, setLoadingBtn] = useState(false)
 
     useEffect(() => {
@@ -21,12 +22,18 @@ const App = () => {
     }, [offsetChar])
 
     useEffect(() => {
-        fetchAllComics()
-        .then(items => setComics(items))
-    }, [])
+        setLoadingBtn(true)
+        fetchAllComics(offsetComics)
+        .then(newComics => setComics(comics => [...comics, ...newComics]))
+        .finally(() => setLoadingBtn(false))
+    }, [offsetComics])
 
     const handleMoreChars = () => {
         setOffsetChar(offsetChar + 9)
+    }
+
+    const handleMoreComics = () => {
+        setOffsetComics(offsetComics + 9)
     }
 
     return (
@@ -37,7 +44,7 @@ const App = () => {
                     <CharactersPage characters={characters} handleMoreChars={handleMoreChars} loadingBtn={loadingBtn}/>
                 </Route>
                 <Route path='/comics' exact>
-                    <ComicsPage comics={comics}/>
+                    <ComicsPage comics={comics} handleMoreComics={handleMoreComics} loadingBtn={loadingBtn}/>
                 </Route>
                 <Route path='/comics/:id' component={ItemPage} exact/>
                 <Redirect to='/'/>
